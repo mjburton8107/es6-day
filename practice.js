@@ -49,9 +49,11 @@ let fullName = `${first} ${last}`;
 // and lovesDevMountain should be set to true.
 // learnES6 should be a method created with object method shorthand that returns "This is awesome!"
 
+
+//note on this one you don't need to use the notation you used above; just declare first and last without anything further...
 	var me = {
-		first: `${first}`,
-		last: `${last}`,
+		first,
+		last,
 		lovesDevMountain: true,
 		learnES6(){
 			return "This is awesome!"
@@ -61,10 +63,19 @@ let fullName = `${first} ${last}`;
 // using computed property names create a new object named flipped where the keys are your first and last name
 // and the values are "first" and "last"
 
+
+//you can do it both ways (see below)
+
+	// var flipped = {
+	// 	[`${first}`] : 'first',
+	// 	[`${last}`]: 'last'
+	// }
+
 	var flipped = {
-		[`${first}`] : 'first',
-		[`${last}`]: 'last'
+		[first] : 'first',
+		[last] : 'last'
 	}
+
 
 
 //////////////////////////////
@@ -105,7 +116,7 @@ const lastFive = [ 6, 7, 8, 9, 10 ];
 // using the spread operator, create a new array named oneThroughTen.
 // You should use the above arrays (and 2 missing digits of your own)
 
-var oneThroughTen = [...firstThree, 4, 5, ...lastFive];
+const oneThroughTen = [...firstThree, 4, 5, ...lastFive];
 
 
 // do not modify
@@ -137,9 +148,11 @@ function greeter( name = 'Anonymous') {
 // and returns number to the power of exponent.
 // if no exponent is passed, the exponent should be two
 
-function toPower(num, exp = 2) {
-		return num ** exp;
-};
+// function toPower(num, exp = 2) {
+// 		return num ** exp;
+// };
+
+const toPower = (num, exp = 2) =>  num ** exp
 
 // using rest parameters, write a function named evenOdd that takes in
 // any number of parameters and returns an object with two properties - even and odd.
